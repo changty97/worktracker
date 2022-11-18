@@ -1,24 +1,38 @@
-<h3>Action Required (AR)</h3>
-<div class="list-group">
-    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">List group item heading</h5>
-        <small>3 days ago</small>
-      </div>
-    </a>
-    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">List group item heading</h5>
-        <small class="text-muted">3 days ago</small>
-      </div>
-    </a>
-    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">List group item heading</h5>
-        <small class="text-muted">3 days ago</small>
-      </div>
-    </a>
-  </div>
+
+<script>
+  $( document ).ready(function() {
+   // Completed will be hidden by default
+   $("#completed").hide();
+   $("#active_btn").click( function() {
+      $("#active").show();
+      $("#completed").hide();
+
+      $("#completed_btn").removeClass("active");
+      $(this).addClass("active");  
+    })
+    $("#completed_btn").click( function() {
+      $("#completed").show();
+      $("#active").hide();
+
+      $("#active_btn").removeClass("active");
+      $(this).addClass("active");
+    })
+
+
+  });
+</script>
+
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="#" id="active_btn">Active</a>
+  </li>
+  <li class="nav-item">
+      <a class="nav-link" href="#" id="completed_btn">Completed</a>
+  </li>
+</ul>
+
+  {% include 'active.html' %}
+  {% include 'completed.html' %}
   
 <div class="dropdown show">
   <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

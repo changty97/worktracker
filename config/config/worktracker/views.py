@@ -12,4 +12,6 @@ from django.template import loader
 
 def index(request):
     template = loader.get_template('home.html')
+    if(request.GET.get('completed')):
+        print("pressed")
     return HttpResponse(template.render())
